@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Preživetje močnih</title>
+    <script src="phaser.min.js"></script>
+    <script src="boot.js"></script>
+    <script src="preloader.js"></script>
+    <script src="mainMenu.js"></script>
+    <script src="help.js"></script>
+    <script src="singlePlayHelp.js"></script>
+    <script src="1v1Help.js"></script>
+    <script src="catchHelp.js"></script>
+    <script src="veganLevel1.js"></script>
+    <script src="veganLevel2.js"></script>
+    <script src="veganLevel3.js"></script>
+    <script src="veganLevel4.js"></script>
+	<script src="vegankaBoss.js"></script>
+    <script src="CTVlevel1.js"></script>
+	<script src="mesarLevel1.js"></script>
+	<script src="mesarLevel2.js"></script>
+	<script src="mesarLevel3.js"></script>
+	<script src="MesarLevel4.js"></script>
+	<script src="mesarBoss.js"></script>
+	<script src="multiVMlvl1.js"></script>
+    <script src="multiVMlvl2.js"></script>
+    <script src="multiVMlvl3.js"></script>
+    <script src="shop.js"></script>
+    <script src="zivljenjaS.js"></script>
+    <script src="orozjeS.js"></script>
+	
+</head>
+  <body>
+    <script type="text/javascript">
+      window.onload = function(){
+          var game = new Phaser.Game(800,600,Phaser.CANVAS, '');
+
+          game.state.add('Boot', Game.Boot);
+          game.state.add('Preloader', Game.Preloader);
+          game.state.add('MainMenu', Game.MainMenu);
+          game.state.add('Help', Game.Help);
+          game.state.add('SingleHelp', Game.SingleHelp);
+          game.state.add('v1Help', Game.v1Help);
+          game.state.add('CatchHelp', Game.CatchHelp);
+          game.state.add('VeganLevel1', Game.VeganLevel1);
+          game.state.add('VeganLevel2', Game.VeganLevel2);
+          game.state.add('VeganLevel3', Game.VeganLevel3);
+          game.state.add('VeganLevel4', Game.VeganLevel4);
+		  game.state.add('VeganBoss', Game.VeganBoss);
+		  game.state.add('MesarLevel1', Game.MesarLevel1);
+		  game.state.add('MesarLevel2', Game.MesarLevel2);
+		  game.state.add('MesarLevel3', Game.MesarLevel3);
+		  game.state.add('MesarLevel4', Game.MesarLevel4);
+		  game.state.add('MesarBoss', Game.MesarBoss);
+          game.state.add('CTVlevel1', Game.CTVlevel1);
+          game.state.add('MultiVMlvl1', Game.MultiVMlvl1);
+          game.state.add('MultiVMlvl2', Game.MultiVMlvl2);
+          game.state.add('MultiVMlvl3', Game.MultiVMlvl3); 
+          game.state.add('Shop', Game.Shop);
+          game.state.add('ZivljenjaS', Game.ZivljenjaS);
+          game.state.add('OrozjeS', Game.OrozjeS);
+          game.state.start('Boot');
+      }
+    </script>
+
+
+  </body>
+
+</html>
