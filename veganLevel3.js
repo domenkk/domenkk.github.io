@@ -19,14 +19,14 @@ var enemyM4;
 Game.VeganLevel3 = function(game){}
 
 var mapV3;
-var layerV3;
+var layerV;
 
 var veganka;
 var controlsV = {};
 var vegankaSpeed = 250;
 var jumpTimer = 0;
 
-var stKor3 = 0;
+var stKor = 0;
 var indPobrKor = [];
 
 var shootTime = 0;
@@ -57,9 +57,9 @@ create: function(game){
   mapV3 = this.add.tilemap('mapV3',64,64);
   mapV3.addTilesetImage('tilesetV');
 
-  layerV3 = mapV3.createLayer(0);
+  layerV = mapV3.createLayer(0);
 
-  layerV3.resizeWorld();
+  layerV.resizeWorld();
 
   mapV3.setCollisionBetween(0,2);
 
@@ -234,8 +234,8 @@ metki.setAll('checkWorldBounds', true);
 },
 update: function(game){
 
-  this.physics.arcade.collide(veganka, layerV3);
-  this.physics.arcade.collide(enemyM4.mesar, layerV3);
+  this.physics.arcade.collide(veganka, layerV);
+  this.physics.arcade.collide(enemyM4.mesar, layerV);
 
   veganka.body.velocity.x = 0;
 
@@ -274,8 +274,8 @@ update: function(game){
     var meniGO = game.add.image(game.camera.x + 220, game.camera.y + 150, 'mnGO');
     veganka.kill();
      var btnB = game.add.button(game.camera.x + 320, game.camera.y + 350, 'bckGO', function(){
+       glasbaV3.stop();
       this.state.start('MainMenu');
-      glasbaV3.stop();
   }  , this, 2,1,0);
     var scoreTextGO = game.add.text(game.camera.x + 410,  game.camera.y + 265, 'Score: 0', { fontSize: '32px', fill: '#ffffff' });
     scoreTextGO.text = tockeV;
@@ -295,9 +295,9 @@ if(checkOverlapVM(veganka,enemyM4.mesar)){
 
 resetVegan:function(){
   veganka.reset(100,800);
-  for(i = 0; i < stKor3; i++){
+  for(i = 0; i < stKor; i++){
     mapV3.putTile(3, indPobrKor[i].x, indPobrKor[i].y);
-    console.log( stKor3 + " " + i + " k " + indPobrKor[i].x + " " + indPobrKor[i].y);
+    console.log( stKor + " " + i + " k " + indPobrKor[i].x + " " + indPobrKor[i].y);
   }
 
  console.log("tocke" + tockeV);
@@ -334,23 +334,23 @@ if(zivljenjaV == 10){
     zivljenjaV-=1;
     tockeV += pointsV;
 }
-     stKor3 = 0;
+     stKor = 0;
     pointsV = 0;
-  scoreText.text = 'Score: ' + stKor3;
-  console.log(stKor3);
+  scoreText.text = 'Score: ' + stKor;
+  console.log(stKor);
 },
 
 getKorencek:function(){
-  if(mapV3.getTile(layerV3.getTileX(veganka.x), layerV3.getTileY(veganka.y), layerV3, true).index != -1){
-    stKor3++;
-      pointsV = stKor3*20;
+  if(mapV3.getTile(layerV.getTileX(veganka.x), layerV.getTileY(veganka.y), layerV, true).index != -1){
+    stKor++;
+      pointsV = stKor*20;
     var koorPobrKor = {};
-    koorPobrKor.x = layerV3.getTileX(veganka.x);
-    koorPobrKor.y = layerV3.getTileY(veganka.y);
-    indPobrKor[stKor3-1] = koorPobrKor;
-      console.log(stKor3 + "  " + indPobrKor[stKor3-1].x + " " + indPobrKor[stKor3-1].y);
+    koorPobrKor.x = layerV.getTileX(veganka.x);
+    koorPobrKor.y = layerV.getTileY(veganka.y);
+    indPobrKor[stKor-1] = koorPobrKor;
+      console.log(stKor + "  " + indPobrKor[stKor-1].x + " " + indPobrKor[stKor-1].y);
       scoreText.text = 'Score: ' + pointsV;
-      mapV3.putTile(-1, layerV3.getTileX(veganka.x), layerV3.getTileY(veganka.y));
+      mapV3.putTile(-1, layerV.getTileX(veganka.x), layerV.getTileY(veganka.y));
 
       hrana3.play();
     }

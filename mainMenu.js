@@ -11,7 +11,7 @@ Game.MainMenu.prototype = {
 
       this.backgroundSprite = this.game.add.tileSprite(0, 0, 800, 600, 'MMozadje');
        music = game.add.audio("meniSong");
-       music.play('', 0, 1, true);
+      music.play('', 0, 1, true);
 
         game.add.image(0, 0, 'titleMM');
 
@@ -36,13 +36,13 @@ Game.MainMenu.prototype = {
         }, this, 2, 1, 0);
 
       var btnhlp =  game.add.button(game.camera.x+278, game.camera.y+480, 'pomoc', function(){
-        this.state.start('Help');
         music.stop();
+        this.state.start('Help');
         }, this, 2, 1, 0);
 
-      var btnshp =  game.add.button(game.camera.x+400, game.camera.y+480, 'shopBtn', function(){
-        this.state.start('Shop');
+      var btnhlp =  game.add.button(game.camera.x+400, game.camera.y+480, 'shopBtn', function(){
         music.stop();
+        this.state.start('Shop');
         }, this, 2, 1, 0);
     },
 

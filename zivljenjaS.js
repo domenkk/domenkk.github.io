@@ -10,6 +10,7 @@ var premaloDenarja = false;
 Game.ZivljenjaS.prototype = {
 
 create: function(game){
+  //this.stage.backgroundColor = '#3A5963';
    this.backgroundSprite = this.game.add.tileSprite(0, 0, 800, 600, 'shopBck');
 
 this.add.image(0,0,'zivSid');
@@ -36,8 +37,8 @@ this.add.image(0,0,'zivSid');
     btn4.anchor.setTo(0.5,0.5);
 
     var btn5 = game.add.button(740, 160,'izhNak', function(){
+      shopS.stop();
         this.state.start('Shop');
-        glasbaSh.stop();
     }  , this, 2,1,0);
       btn5.anchor.setTo(0.5,0.5);
 

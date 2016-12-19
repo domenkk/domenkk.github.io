@@ -15,13 +15,13 @@ create: function(game){
     imgH.anchor.set(0.5,0.5);
 
             var btnB = game.add.button(720, 125,'izhH', function(){
-              glasbaHe.stop();
-              this.state.start('MainMenu');
+              helpS.stop();
+          this.state.start('MainMenu');
         }  , this, 2,1,0);
 
                 var btnB = game.add.button(110, 160,'bckArHlp', function(){
-                  glasbaHe.stop();
-                  this.state.start('Help');
+                  helpS.stop();
+          this.state.start('Help');
         }  , this, 2,1,0);
 
 

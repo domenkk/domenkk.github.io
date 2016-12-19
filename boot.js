@@ -14,6 +14,8 @@ Game.Boot.prototype =  {
 
   preload:function(){
 
+
+
   },
 
   create:function(){

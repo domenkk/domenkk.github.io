@@ -1,14 +1,14 @@
 Game.VeganLevel1 = function(game){}
 
 var mapV1;
-var layerV1;
+var layerV;
 
 var veganka;
 var controlsV = {};
 var vegankaSpeedLvl1 = 250;
 var jumpTimer = 0;
 
-var stKor1 = 0;
+var stKor = 0;
 var indPobrKor = [];
 
 var levoV = false;
@@ -39,7 +39,6 @@ create: function(game){
 
   skok = this.add.audio("skok");
   hrana = this.add.audio("jabolko");
-  strel = this.add.audio("strel");
 
 
   this.stage.backgroundColor = '#3e4dbc';
@@ -53,9 +52,9 @@ create: function(game){
   mapV1 = this.add.tilemap('mapV1',64,64);
   mapV1.addTilesetImage('tilesetV');
 
-  layerV1 = mapV1.createLayer(0);
+  layerV = mapV1.createLayer(0);
 
-  layerV1.resizeWorld();
+  layerV.resizeWorld();
 
   mapV1.setCollisionBetween(0,2);
 
@@ -137,25 +136,12 @@ if(zivljenjaV == 6){
     life10.fixedToCamera = true;
 }
 
-
-
-metkiV = game.add.group();
-metkiV.enableBody = true;
-
-metkiV.physicsBodyType = Phaser.Physics.ARCADE;
-metkiV.createMultiple(500,'metekV');
-
-metkiV.setAll('anchor.x', 0.5);
-metkiV.setAll('anchor.y', 0.5);
-
-metkiV.setAll('outOfBoundsKill', true);
-metkiV.setAll('chechWorldBounds', true);
-
-
 },
 update: function(game){
 
-  this.physics.arcade.collide(veganka, layerV1);
+
+
+  this.physics.arcade.collide(veganka, layerV);
 
   veganka.body.velocity.x = 0;
 
@@ -191,6 +177,7 @@ if(veganka.body.velocity.x == 0 && veganka.body.velocity.y == 0){
 
   }
 
+
 if(zivljenjaV == 0){
 
     var meniGO = game.add.image(game.camera.x + 220, game.camera.y + 150, 'mnGO');
@@ -203,13 +190,14 @@ if(zivljenjaV == 0){
     scoreTextGO.text = tockeV;
 }
 
+
 },
 
 resetVegan:function(){
   veganka.reset(100,300);
-  for(i = 0; i < stKor1; i++){
+  for(i = 0; i < stKor; i++){
     mapV1.putTile(3, indPobrKor[i].x, indPobrKor[i].y);
-    console.log( stKor1 + " " + i + " k " + indPobrKor[i].x + " " + indPobrKor[i].y);
+    console.log( stKor + " " + i + " k " + indPobrKor[i].x + " " + indPobrKor[i].y);
   }
 
 if(zivljenjaV == 10){
@@ -245,34 +233,38 @@ if(zivljenjaV == 10){
     tockeV += pointsV;
 }
     pointsV = 0;
-  stKor1 = 0;
-  scoreText.text = 'Score: ' + stKor1;
-  console.log(stKor1);
+  stKor = 0;
+  scoreText.text = 'Score: ' + stKor;
+  console.log(stKor);
 },
 
 getKorencek:function(){
-  if(mapV1.getTile(layerV1.getTileX(veganka.x), layerV1.getTileY(veganka.y), layerV1, true).index != -1){
-    stKor1++;
-    pointsV= stKor1*20;
+  if(mapV1.getTile(layerV.getTileX(veganka.x), layerV.getTileY(veganka.y), layerV, true).index != -1){
+    stKor++;
+    pointsV= stKor*20;
     var koorPobrKor = {};
-    koorPobrKor.x = layerV1.getTileX(veganka.x);
-    koorPobrKor.y = layerV1.getTileY(veganka.y);
-    indPobrKor[stKor1-1] = koorPobrKor;
-      console.log(stKor1 + "  " + indPobrKor[stKor1-1].x + " " + indPobrKor[stKor1-1].y);
+    koorPobrKor.x = layerV.getTileX(veganka.x);
+    koorPobrKor.y = layerV.getTileY(veganka.y);
+    indPobrKor[stKor-1] = koorPobrKor;
+      console.log(stKor + "  " + indPobrKor[stKor-1].x + " " + indPobrKor[stKor-1].y);
       scoreText.text = 'Score: ' + pointsV;
-      mapV1.putTile(-1, layerV1.getTileX(veganka.x), layerV1.getTileY(veganka.y));
+      mapV1.putTile(-1, layerV.getTileX(veganka.x), layerV.getTileY(veganka.y));
 
       hrana.play();
   }
 
-  //stKor1++;
+  //stKor++;
 
 },
+
 
 prehodLvl2:function(){
   glasbaV1.stop();
   this.state.start('VeganLevel2');
   tockeV+=pointsV;
 },
+
+
+
 
 }

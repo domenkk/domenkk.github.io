@@ -17,8 +17,6 @@ var life5M;
 
 Game.MesarLevel1.prototype = {
     create:function(game) {
-
-
       //nebo
       nebo=this.add.tileSprite(0,-25, 1500000, 600, 'nebo');
       this.physics.arcade.gravity.x = 9;
@@ -50,11 +48,11 @@ Game.MesarLevel1.prototype = {
       mesar.body.collideWorldBounds = true; // odboj od 'mej igre'
 
       tipke = this.input.keyboard.createCursorKeys();
-
-
+	  
+	  
 	  var lifeTxt = game.add.text(10, 8, 'Lives:', {fontSize: '32px', fill: '#000'});
-	  lifeTxt.fixedToCamera = true;
-
+	  lifeTxt.fixedToCamera = true;    
+    
 life1M = game.add.image(100, 0, 'srcek');
 life2M = game.add.image(130, 0, 'srcek');
 life3M = game.add.image(160, 0, 'srcek');
@@ -66,7 +64,7 @@ life2M.fixedToCamera = true;
 life3M.fixedToCamera = true;
 life4M.fixedToCamera = true;
 life5M.fixedToCamera = true;
-
+	  
     },
 
     update:function(game) {
@@ -93,10 +91,10 @@ life5M.fixedToCamera = true;
       if(tipke.down.isDown){
         mesar.body.velocity.y = 200;
       }
-
+	  
 	  if(zivljenjaM == 0){
-
-    var meniGO = game.add.image(game.camera.x + 220, game.camera.y + 150, 'mnGO');
+    
+    var meniGO = game.add.image(game.camera.x + 220, game.camera.y + 150, 'mnGO');   
     mesar.kill();
      var btnB = game.add.button(game.camera.x + 320, game.camera.y + 350, 'bckGO', function(){
       this.state.start('MainMenu');

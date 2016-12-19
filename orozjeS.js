@@ -36,8 +36,8 @@ this.add.image(0,0,'oroSid');
     btn4.anchor.setTo(0.5,0.5);
 
     var btn5 = game.add.button(740, 160,'izhNak', function(){
+      shopS.stop();
         this.state.start('Shop');
-        glasbaSh.stop();
     }  , this, 2,1,0);
       btn5.anchor.setTo(0.5,0.5);
 

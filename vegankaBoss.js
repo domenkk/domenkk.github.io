@@ -9,6 +9,9 @@ EnemyMesarBoss = function(index, game, x, y, premik){
     this.mesarBoss.body.collideWorldBounds = true;
     this.mesarBoss.allowGravity = true;
 
+
+    // this.fireRate = 800;
+
     this.mesarTween = game.add.tween(this.mesarBoss).to({
         x: this.mesarBoss.x + premik
     }, 2500, 'Linear', true, 0, 100, true);
@@ -21,7 +24,7 @@ var enemyBossKilled = false;
 Game.VeganBoss = function(game){}
 
 var bossMap;
-var layerVBB;
+var layerVB;
 
 var veganka;
 var controlsV = {};
@@ -63,9 +66,9 @@ create: function(game){
   mapVB = this.add.tilemap('bossVmap',64,64);
   mapVB.addTilesetImage('tilesetVB');
 
-  layerVB = mapVB.createLayer(0);
+  layerV = mapVB.createLayer(0);
 
-  layerVB.resizeWorld();
+  layerV.resizeWorld();
 
   mapVB.setCollisionBetween(0,2);
   mapVB.setTileIndexCallback(2, this.powerUp, this);
@@ -270,29 +273,13 @@ metki.setAll('outOfBoundsKill', true);
 metki.setAll('checkWorldBounds', true);
 
 enemyBoss = new EnemyMesarBoss(0, game, 1216, 768, 960);
-// metkiEnemy = game.add.group();
-// metkiEnemy.enableBody = true;
-// metkiEnemy.physicsBodyType = Phaser.Physics.ARCADE;
-// metkiEnemy.createMultiple(5, 'metekEnemy');
-// metkiEnemy.setAll('anchor.x', 0.5);
-// metkiEnemy.setAll('anchor.y', 0.5);
-//
-// metkiEnemy.setAll('scale.x', 2.5);
-// metkiEnemy.setAll('scale.y', 2.5);
-//
-// metkiEnemy.setAll('outOfBoundsKill', true);
-// metkiEnemy.setAll('checkWorldBounds', true);
-//
-// if(this.physics.arcade.distanceBetween(enemyBoss, veganka) < 300){
-//   this.nextFire = this.time.now + EnemyMesarBoss.fireRate;
-//   metkiEnemy.rotation = this.physics.arcade.moveToObject(metkiEnemy, veganka, 500);
-// }
+
 
 },
 update: function(game){
 
-  this.physics.arcade.collide(veganka, layerVB);
-  this.physics.arcade.collide(enemyBoss.mesarBoss, layerVB);
+  this.physics.arcade.collide(veganka, layerV);
+  this.physics.arcade.collide(enemyBoss.mesarBoss, layerV);
 
   veganka.body.velocity.x = 0;
 
@@ -371,7 +358,6 @@ update: function(game){
 
 }
 
-
 }, //konc updajta
 
 resetVegan:function(){
@@ -407,7 +393,7 @@ if(zivljenjaV == 10){
 } else if (zivljenjaV == 1){
     life1.visible = false;
     zivljenjaV-=1;
-    tockeV += stKor4;
+    tockeV += stKor;
 }
 
 },
@@ -434,9 +420,9 @@ if(zivljenjaV == 10){
   },
 
   powerUp: function(){
-      if(mapVB.getTile(layerVB.getTileX(veganka.x), layerVB.getTileY(veganka.y), layerVB, true).index != -1){
+      if(mapVB.getTile(layerV.getTileX(veganka.x), layerV.getTileY(veganka.y), layerV, true).index != -1){
 
-        mapVB.putTile(-1, layerVB.getTileX(veganka.x), layerVB.getTileY(veganka.y));
+        mapVB.putTile(-1, layerV.getTileX(veganka.x), layerV.getTileY(veganka.y));
 
        vegankaSpeedBoss += 80;
 
@@ -449,8 +435,8 @@ if(zivljenjaV == 10){
 
 konec:function(){
   if(enemyBossKilled == true){
-    this.state.start('MainMenu');
-    glasbaVBoss.stop();
+      glasbaVBoss.stop();
+      this.state.start('MainMenu');
   }
 },
 } // konec

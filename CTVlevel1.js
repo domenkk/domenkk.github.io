@@ -20,18 +20,19 @@ var winB = false;
 var preostanek;
 
 Game.CTVlevel1.prototype = {
-
+    
     create: function(game){
         winV = false;
         winB = false;
         this.backgroundSprite = this.game.add.tileSprite(0, 0, 800, 600, 'bckCTV');
-
+        //this.backgroundSprite.fixedToCamera = true;
+        //this.physics.arcade.gravity.y = 1100;
         mapCTV1 = this.add.tilemap('mapCTV1', 25, 25);
         mapCTV1.addTilesetImage('tilesetCTV');
-
+        
         layerCTV = mapCTV1.createLayer(0);
         layerCTV.resizeWorld();
-
+        
         mapCTV1.setCollisionBetween(0,2);
         vegankaCTV = this.add.sprite(40, 40, 'vegankaCTV');
         vegankaCTV.anchor.setTo(0.5, 0.5);
@@ -40,7 +41,7 @@ Game.CTVlevel1.prototype = {
         vegankaCTV.animations.add('run', [0,1,2,3], 4, true);
         this.physics.enable(vegankaCTV);
         vegankaCTV.body.collideWorldBounds = true;
-
+        
         controlsVctv = {
              right: this.input.keyboard.addKey(Phaser.Keyboard.D),
              left: this.input.keyboard.addKey(Phaser.Keyboard.A),
@@ -48,8 +49,8 @@ Game.CTVlevel1.prototype = {
              down: this.input.keyboard.addKey(Phaser.Keyboard.S),
              /*shoot: this.input.keyboard.addKey(Phaser.Keyboard.X),*/
         };
-
-
+        
+        
         butcherCTV = this.add.sprite(740,40, 'butcherCTV');
         butcherCTV.anchor.setTo(0.5, 0.5);
         butcherCTV.scale.setTo(1.2, 1.2);
@@ -57,7 +58,7 @@ Game.CTVlevel1.prototype = {
         butcherCTV.animations.add('run', [0,1,2,3], 4, true);
         this.physics.arcade.enable(butcherCTV);
         butcherCTV.body.collideWorldBounds = true;
-
+        
         controlsBctv = {
              right: this.input.keyboard.addKey(Phaser.Keyboard.L),
              left: this.input.keyboard.addKey(Phaser.Keyboard.J),
@@ -65,15 +66,15 @@ Game.CTVlevel1.prototype = {
              down: this.input.keyboard.addKey(Phaser.Keyboard.K),
              /*shoot: this.input.keyboard.addKey(Phaser.Keyboard.X),*/
         };
-
+        
         timer = game.time.create();
         //timerEvent = timer.add(Phaser.Timer.SECOND * 5, this.endTimer, this);
         timerEvent = timer.add(Phaser.Timer.MINUTE * 1 + Phaser.Timer.SECOND * 30, this.endTimer, this);
         timer.start();
-
+        
         text1 = game.add.text(game.world.centerX,52, 'tt');
         text1.anchor.setTo(0.5,0.5);
-
+        
     },
     update: function(game){
         if(!winV && !winB){
@@ -83,9 +84,9 @@ Game.CTVlevel1.prototype = {
         vegankaCTV.body.velocity.x = 0;
         vegankaCTV.body.velocity.y = 0;
         vegankaCTV.angle = vegankaAngle;
-
+        
         if(winV){
-             var meniVegWin = game.add.image(game.world.centerX, game.world.centerY, 'vegWinM');
+             var meniVegWin = game.add.image(game.world.centerX, game.world.centerY, 'vegWinM');  
         meniVegWin.anchor.setTo(0.5,0.5);
          var btnB = game.add.button(game.world.centerX-70, game.world.centerY+95, 'bckBtnCTV', function(){
             this.state.start('MainMenu');
@@ -97,7 +98,7 @@ Game.CTVlevel1.prototype = {
             btnB.anchor.setTo(0.5,0.5);
             btnN.anchor.setTo(0.5,0.5);
         }
-
+        
         if(controlsVctv.right.isDown){
             vegankaCTV.animations.play('run');
             vegankaCTV.scale.setTo(-1.2,-1.2);
@@ -111,31 +112,31 @@ Game.CTVlevel1.prototype = {
             vegankaAngle = 90;
             vegankaCTV.body.velocity.x -= vegankaSpeedCTV;
         }
-
+ 
         if(controlsVctv.up.isDown){
             vegankaCTV.animations.play('run');
             vegankaCTV.scale.setTo(1.2,-1.2);
             vegankaAngle = 180;
             vegankaCTV.body.velocity.y -= vegankaSpeedCTV;
         }
-
-        if(controlsVctv.down.isDown){
+        
+        if(controlsVctv.down.isDown){       
             vegankaAngle = 0;
             vegankaCTV.animations.play('run');
             vegankaCTV.scale.setTo(1.2,-1.2);
             vegankaCTV.body.velocity.y += vegankaSpeedCTV;
         }
-
+        
         if(vegankaCTV.body.velocity.x == 0 && vegankaCTV.body.velocity.y == 0){
             vegankaCTV.animations.play('idle');
         }
-
+        
         this.physics.arcade.collide(butcherCTV, layerCTV);
         butcherCTV.body.velocity.x = 0;
         butcherCTV.body.velocity.y = 0;
         butcherCTV.angle = butcherAngle;
-
-
+        
+        
         if(controlsBctv.right.isDown){
             butcherCTV.animations.play('run');
             butcherCTV.scale.setTo(1.2,-1.2);
@@ -149,15 +150,15 @@ Game.CTVlevel1.prototype = {
             butcherCTV.body.velocity.x -= buctherSpeedCTV;
             butcherAngle = 90;
         }
-
+ 
         if(controlsBctv.up.isDown){
             butcherCTV.animations.play('run');
             butcherCTV.scale.setTo(1.2,-1.2);
             butcherCTV.body.velocity.y -= buctherSpeedCTV;
             butcherAngle = 180;
         }
-
-        if(controlsBctv.down.isDown){
+        
+        if(controlsBctv.down.isDown){       
             butcherCTV.animations.play('run');
             butcherCTV.scale.setTo(1.2,-1.2);
             butcherCTV.body.velocity.y += buctherSpeedCTV;
@@ -167,11 +168,11 @@ Game.CTVlevel1.prototype = {
         if(butcherCTV.body.velocity.x == 0 && butcherCTV.body.velocity.y == 0){
             butcherCTV.animations.play('idle');
         }
-
-        if(checkOverlapVM(vegankaCTV, butcherCTV)){
+        
+        if(checkOverlapVM(vegankaCTV, butcherCTV)){  
             winB = true;
             timer.stop();
-            var meniButchWin = game.add.image(game.world.centerX, game.world.centerY, 'butchWinM');
+            var meniButchWin = game.add.image(game.world.centerX, game.world.centerY, 'butchWinM');  
             meniButchWin.anchor.setTo(0.5,0.5);
             var btnB = game.add.button(game.world.centerX-70, game.world.centerY+95, 'bckBtnCTV', function(){
                 this.state.start('MainMenu');
@@ -186,7 +187,7 @@ Game.CTVlevel1.prototype = {
             butcherCTV.kill();
         }
     },
-
+    
     endTimer: function(game) {
         winV = true;
         vegankaCTV.kill();
@@ -197,16 +198,17 @@ Game.CTVlevel1.prototype = {
         // Convert seconds (s) to a nicely formatted and padded time string
         var minutes = "0" + Math.floor(s / 60);
         var seconds = "0" + (s - minutes * 60);
-        return minutes.substr(-2) + ":" + seconds.substr(-2);
+        return minutes.substr(-2) + ":" + seconds.substr(-2);   
     }
-
-
+    
+    
 }
 
 function mesarVegana(spriteA, spriteB){
-
+    
     var boundsA = spriteA.getBounds();
     var boundsB = spriteB.getBounds();
-
+    
     return Phaser.Rectangle.intersects(boundsA, boundsB);
 }
+

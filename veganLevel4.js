@@ -28,7 +28,7 @@ var enemyM7Killed = false;
 Game.VeganLevel4 = function(game){}
 
 var mapV4;
-var layerV4;
+var layerV;
 
 var veganka;
 var controlsV = {};
@@ -68,9 +68,9 @@ create: function(game){
   mapV4 = this.add.tilemap('mapV4',64,64);
   mapV4.addTilesetImage('tilesetV');
 
-  layerV4 = mapV4.createLayer(0);
+  layerV = mapV4.createLayer(0);
 
-  layerV4.resizeWorld();
+  layerV.resizeWorld();
 
   mapV4.setCollisionBetween(0,2);
 
@@ -251,7 +251,7 @@ metkiV.setAll('chechWorldBounds', true);
 },
 update: function(game){
 
-  this.physics.arcade.collide(veganka, layerV4);
+  this.physics.arcade.collide(veganka, layerV);
 
   veganka.body.velocity.x = 0;
 
@@ -334,6 +334,7 @@ resetVegan:function(){
   veganka.reset(100,10);
   for(i = 0; i < stKor4; i++){
     mapV4.putTile(3, indPobrKor4[i].x, indPobrKor4[i].y);
+    //console.log( stKor + " " + i + " k " + indPobrKor[i].x + " " + indPobrKor[i].y);
   }
 
 
@@ -388,16 +389,16 @@ if(zivljenjaV == 10){
 },
 
 getKorencek:function(){
-  if(mapV4.getTile(layerV4.getTileX(veganka.x), layerV4.getTileY(veganka.y), layerV4, true).index != -1){
+  if(mapV4.getTile(layerV.getTileX(veganka.x), layerV.getTileY(veganka.y), layerV, true).index != -1){
     stKor4++;
       pointsV = stKor4*20;
     var koorPobrKor = {};
-    koorPobrKor.x = layerV4.getTileX(veganka.x);
-    koorPobrKor.y = layerV4.getTileY(veganka.y);
+    koorPobrKor.x = layerV.getTileX(veganka.x);
+    koorPobrKor.y = layerV.getTileY(veganka.y);
     indPobrKor4[stKor4-1] = koorPobrKor;
       console.log(stKor4 + "  " + indPobrKor4[stKor4-1].x + " " + indPobrKor4[stKor4-1].y);
       scoreText.text = 'Score: ' + pointsV;
-      mapV4.putTile(-1, layerV4.getTileX(veganka.x), layerV4.getTileY(veganka.y));
+      mapV4.putTile(-1, layerV.getTileX(veganka.x), layerV.getTileY(veganka.y));
 
       hrana4.play();
   }
@@ -421,9 +422,9 @@ shootMetek:function(){
 },
 
 speedUp: function(){
-    if(mapV4.getTile(layerV4.getTileX(veganka.x), layerV4.getTileY(veganka.y), layerV4, true).index != -1){
+    if(mapV4.getTile(layerV.getTileX(veganka.x), layerV.getTileY(veganka.y), layerV, true).index != -1){
 
-      mapV4.putTile(-1, layerV4.getTileX(veganka.x), layerV4.getTileY(veganka.y));
+      mapV4.putTile(-1, layerV.getTileX(veganka.x), layerV.getTileY(veganka.y));
 
      vegankaSpeed += 150;
 
@@ -431,7 +432,7 @@ speedUp: function(){
          vegankaSpeed -= 150;
      });
 
-     power.play();
+     power4.play();
   }
 },
 

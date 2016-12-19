@@ -154,6 +154,8 @@ Game.Preloader.prototype = {
       this.load.image('coinS', 'images_shop/coin.png');
       this.load.image('warPD', 'images_shop/premaloDenarja.png');
 
+
+
       //shopZivljenja
       this.load.image('zivSid', 'images_shop/prvastr.png');
       this.load.image('6ziv', 'images_shop/6zivljenj.png');

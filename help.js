@@ -5,9 +5,8 @@ Game.Help.prototype = {
 create: function(game){
   //this.stage.backgroundColor = '#3A5963';
    this.backgroundSprite = this.game.add.tileSprite(0, 0, 800, 600, 'MMozadje');
-
-   glasbaHe = this.add.audio("helpShopS");
-   glasbaHe.play('', 0, 1, true);
+   helpS = this.add.audio("helpShopS");
+   helpS.play('', 0, 1, true);
 
      game.add.image(0, 0, 'titleMM');
 
@@ -29,7 +28,7 @@ create: function(game){
       }  , this, 2,1,0);
         btn3.anchor.setTo(0.5,0.5);
         var btnB = game.add.button(720, 125,'izhH', function(){
-          glasbaHe.stop();
+          helpS.stop();
           this.state.start('MainMenu');
         }  , this, 2,1,0);
 
