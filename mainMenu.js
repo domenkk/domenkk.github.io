@@ -31,7 +31,7 @@ Game.MainMenu.prototype = {
         }, this, 2, 1, 0);
 
       var btn1v1 =  game.add.button(game.camera.x+275, game.camera.y+340, '1vs1', function(){
-        this.state.start('MultiVMlvl3'); // to treba naredit
+        this.state.start('MultiVMlvl1');
            music.stop();
         }, this, 2, 1, 0);
 
