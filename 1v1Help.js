@@ -11,7 +11,7 @@ create: function(game){
     //game.add.image(0, 0, 'sidroHlp');
 
 
-    var imgH = game.add.image(game.camera.x+405,game.camera.x+350, '1v1Hlp');
+    var imgH = game.add.image(game.camera.x+405,game.camera.x+350, '1v1hlp');
     imgH.anchor.set(0.5,0.5);
 
             var btnB = game.add.button(720, 125,'izhH', function(){
