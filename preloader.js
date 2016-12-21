@@ -37,7 +37,7 @@ Game.Preloader.prototype = {
       this.load.image('1v1BtnH', 'images_help/1v1h.png');
       this.load.image('sgpBtnH', 'images_help/sgpH.png');
       this.load.image('izhH', 'images_help/izhH.png');
-      this.load.image('1v1Hlp', 'images_help/1v1hlp.png');
+      this.load.image('1v1Hlp', 'images_help/1v1Hlp.png');
       this.load.image('ctvHlp', 'images_help/ctvHlp.png');
       this.load.image('sgpHlp', 'images_help/snglHlp.png');
       this.load.image('bckArHlp', 'images_help/halpBck.png');
