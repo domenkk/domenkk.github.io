@@ -26,8 +26,8 @@ var controlsV = {};
 var vegankaSpeed = 250;
 var jumpTimer = 0;
 
-var stKor = 0;
-var indPobrKor = [];
+var stKor3 = 0;
+var indPobrKor3 = [];
 
 var shootTime = 0;
 var metki;
@@ -295,9 +295,9 @@ if(checkOverlapVM(veganka,enemyM4.mesar)){
 
 resetVegan:function(){
   veganka.reset(100,800);
-  for(i = 0; i < stKor; i++){
-    mapV3.putTile(3, indPobrKor[i].x, indPobrKor[i].y);
-    console.log( stKor + " " + i + " k " + indPobrKor[i].x + " " + indPobrKor[i].y);
+  for(i = 0; i < stKor3; i++){
+    mapV3.putTile(3, indPobrKor3[i].x, indPobrKor3[i].y);
+    console.log( stKor3 + " " + i + " k " + indPobrKor3[i].x + " " + indPobrKor3[i].y);
   }
 
  console.log("tocke" + tockeV);
@@ -334,21 +334,21 @@ if(zivljenjaV == 10){
     zivljenjaV-=1;
     tockeV += pointsV;
 }
-     stKor = 0;
+     stKor3 = 0;
     pointsV = 0;
-  scoreText.text = 'Score: ' + stKor;
-  console.log(stKor);
+  scoreText.text = 'Score: ' + stKor3;
+  console.log(stKor3);
 },
 
 getKorencek:function(){
   if(mapV3.getTile(layerV.getTileX(veganka.x), layerV.getTileY(veganka.y), layerV, true).index != -1){
-    stKor++;
-      pointsV = stKor*20;
+    stKor3++;
+      pointsV = stKor3*20;
     var koorPobrKor = {};
     koorPobrKor.x = layerV.getTileX(veganka.x);
     koorPobrKor.y = layerV.getTileY(veganka.y);
-    indPobrKor[stKor-1] = koorPobrKor;
-      console.log(stKor + "  " + indPobrKor[stKor-1].x + " " + indPobrKor[stKor-1].y);
+    indPobrKor3[stKor3-1] = koorPobrKor;
+      console.log(stKor3 + "  " + indPobrKor3[stKor3-1].x + " " + indPobrKor3[stKor3-1].y);
       scoreText.text = 'Score: ' + pointsV;
       mapV3.putTile(-1, layerV.getTileX(veganka.x), layerV.getTileY(veganka.y));
 

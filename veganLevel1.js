@@ -46,6 +46,8 @@ create: function(game){
   this.backgroundSprite.fixedToCamera = true;
 
   //this.physics.arcade.gravity.y = 1100;
+  this.physics.arcade.gravity.y = 0;
+
 
   zivljenjaV = zivljenjaVeganka;
 
