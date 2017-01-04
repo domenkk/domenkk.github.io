@@ -21,7 +21,7 @@ Game.MainMenu.prototype = {
         }, this, 2, 1, 0);
 
       var btnmsr =  game.add.button(game.camera.x+400, game.camera.y+160, 'msr', function(){
-        this.state.start('VeganBoss');
+        this.state.start('MesarLevel1');
            music.stop();
         }, this, 2, 1, 0);
 

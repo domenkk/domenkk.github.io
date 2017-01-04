@@ -60,7 +60,7 @@ create: function(game){
   this.backgroundSprite = this.game.add.tileSprite(0, 0, 800, 600, 'background');
   this.backgroundSprite.fixedToCamera = true;
 
-  this.physics.arcade.gravity.y = 1100;
+  this.physics.arcade.gravity.y = 0;
 
 
   mapVB = this.add.tilemap('bossVmap',64,64);
@@ -83,6 +83,7 @@ create: function(game){
   veganka.animations.add('jump', [2], 1, true );
   veganka.animations.add('run', [3,4,5,6,7,8], 7, true );
   this.physics.arcade.enable(veganka);
+  veganka.body.gravity.y = 1100;
 
   this.camera.follow(veganka);
   veganka.body.collideWorldBounds = true;

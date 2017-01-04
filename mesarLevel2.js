@@ -24,7 +24,7 @@ create: function(game){
 
 
   mapM2 = this.add.tilemap('mapM2',64,64);
-  mapM2.addTilesetImage('tilesetV');
+  mapM2.addTilesetImage('tilesetM');
 
   layerV = mapM2.createLayer(0);
 

@@ -5,20 +5,18 @@ Game.Boot = function(game){
 };
 
 Game.Boot.prototype =  {
-  init:function(){
+  init: function(){
       this.input.maxPointers = 1;
 
       this.stage.disableVisibilityChange = true;
 
   },
 
-  preload:function(){
-
-
+  preload: function(){
 
   },
 
-  create:function(){
+  create: function(){
     this.state.start('Preloader');
   }
 };

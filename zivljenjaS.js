@@ -58,7 +58,7 @@ this.add.image(0,0,'zivSid');
                premaloDenarja = true;
                } else {
            zivljenjaVeganka = 6;
-           console.log(zivljenjaVeganka);
+           zivljenjaMesar = 6;
            ziv6kup = true;
            tockeV-=600;
                }
@@ -67,6 +67,7 @@ this.add.image(0,0,'zivSid');
                 premaloDenarja = true;
            } else {
             zivljenjaVeganka = 7;
+               zivljenjaMesar = 7;
             ziv7kup = true;
            tockeV-=1000;
                }
@@ -75,6 +76,7 @@ this.add.image(0,0,'zivSid');
                 premaloDenarja = true;
            } else {
             zivljenjaVeganka = 8;
+            zivljenjaMesar = 8;
             ziv8kup = true;
            tockeV-=2000;
                }
@@ -83,6 +85,7 @@ this.add.image(0,0,'zivSid');
                 premaloDenarja = true;
            } else {
             zivljenjaVeganka = 9;
+            zivljenjaMesar = 9;
             ziv9kup = true;
            tockeV-=3000;
                }
@@ -91,6 +94,7 @@ this.add.image(0,0,'zivSid');
                 premaloDenarja = true;
            } else {
             zivljenjaVeganka = 10;
+            zivljenjaMesar = 10;
             ziv10kup = true;
            tockeV-=5000;
                }
@@ -107,6 +111,7 @@ this.add.image(0,0,'zivSid');
 update: function(game){
 
     zivljenjaV = zivljenjaVeganka;
+    zivljenjaM = zivljenjaMesar;
      denar.text = tockeV;
 
 

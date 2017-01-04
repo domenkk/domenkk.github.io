@@ -3,7 +3,8 @@ Game.Preloader = function(game){
 };
 
 var zivljenjaVeganka = 5;
-var tockeV = 0;
+var zivljenjaMesar = 5;
+var tockeV = 800;
 var ziv6kup = false;
 var ziv7kup = false;
 var ziv8kup = false;
@@ -12,13 +13,10 @@ var ziv10kup = false;
 
 Game.Preloader.prototype = {
   preload:function(){
-
+    // this.add.image('preloaderBar', 'preload/preloadBar.png');
     this.game.stage.backgroundColor = '#FFF';
-    this.preloadBar = this.add.sprite(this.world.centerX, this.world.centerY, 'preloadBar');
-    this.load.setPreloadSprite(this.preloadBar);
-
-
-    this.preloadBar = this.add.sprite(0, 100, 'preloaderBar');
+    // this.preloadBar = this.add.sprite(this.world.centerX, this.world.centerY, 'preloaderBar');
+    // this.load.setPreloadSprite(this.preloadBar);
 
     // za main menu
     this.load.image('MMozadje', 'images_menu/meni_back.png');
@@ -86,9 +84,9 @@ Game.Preloader.prototype = {
 
 	  // mesar
 	this.load.image('nebo', "extra/ozadje.png");
-    this.load.tilemap('zemljevid', "extra/mapaNova.csv");
-
-    this.load.image('tiles', 'extra/tiles.png');
+     this.load.tilemap('zemljevid', "dodatno_mesar/level1/zemljevid.csv");
+    this.load.image('tiles', 'dodatno_mesar/level1/tileset.png');
+      this.load.image('zastava', 'dodatno_mesar/level1/zastavica.png');
 
     //this.load.spritesheet('mesar', "extra/mesar.png",100,100);
     //this.load.image('mesar', "extra/mesar.png");
@@ -105,11 +103,11 @@ Game.Preloader.prototype = {
 
 	  //mesar lvl2
 	  this.load.tilemap('mapM2', 'images_mesar/lvl2mapMesar.csv');
-      this.load.image('tilesetV', 'images_mesar/titlesV.png');
+      this.load.image('tilesetM', 'images_mesar/titlesV.png');
 
 
       this.load.tilemap('mapM3', 'images_mesar/mapa1.csv');
-      this.load.image('tilesetV', 'images_mesar/tilesetV.png');
+      //this.load.image('tilesetV', 'images_mesar/tilesetV.png');
 
       this.load.spritesheet('mesar','images_mesar/butcher.png', 24, 26);
 
@@ -140,7 +138,9 @@ Game.Preloader.prototype = {
       //shopMain
       this.load.image('shopBck', 'images_shop/shopBck.png');
       this.load.image('izbrV', 'images_shop/izbrana_veganka.png');
+      this.load.image('izbrM', 'images_shop/izbran_mesar.png');
       this.load.image('neizM', 'images_shop/neizbran_mesar.png');
+      this.load.image('neizV', 'images_shop/neizbrana_veganka.png');
       this.load.image('nakBtnS', 'images_shop/nakupuj.png');
       this.load.image('izhBtnS', 'images_shop/izhod.png');
       this.load.image('zivS', 'images_shop/zivljenja.png');
