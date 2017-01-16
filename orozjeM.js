@@ -1,4 +1,4 @@
-Game.OrozjeS = function(game){};
+Game.OrozjeM = function(game){};
 
 var indeksOroShop = 0;
 var nxtBtnOro;
@@ -7,7 +7,7 @@ var kupiOro;
 var coinProd;
 var premaloDenarja = false;
 
-Game.OrozjeS.prototype = {
+Game.OrozjeM.prototype = {
 
 create: function(game){
   //this.stage.backgroundColor = '#3A5963';
@@ -61,27 +61,27 @@ this.add.image(0,0,'oroSid');
                premaloDenarja = true;
         } else {
         if(indeksOroShop == 0){
-            orV0 = 1;
+            orM0 = 1;
         } else if(indeksOroShop == 1){
-            orV1 = 1;
+            orM1 = 1;
         } else if(indeksOroShop == 2){
-            orV2 = 1;
+            orM2 = 1;
         }else if(indeksOroShop == 3){
-            orV3 = 1;
+            orM3 = 1;
         }else if(indeksOroShop == 4){
-            orV4 = 1;
+            orM4 = 1;
         }else if(indeksOroShop == 5){
-            orV5 = 1;
+            orM5 = 1;
         }else if(indeksOroShop == 6){
-            orV6 = 1;
+            orM6 = 1;
         }else if(indeksOroShop == 7){
-            orV7 = 1;
+            orM7 = 1;
         }else if(indeksOroShop == 8){
-            orV8 = 1;
+            orM8 = 1;
         }else if(indeksOroShop == 9){
-            orV9 = 1;
+            orM9 = 1;
         }
-        orozjeVeganka = indeksOroShop;
+        orozjeMesar = indeksOroShop;
         tockeV=tockeV-200;
             }
     }, this, 2,1,0 );
@@ -99,7 +99,7 @@ update: function(game){
      denar.text = tockeV;
 
     if(indeksOroShop == 0){
-        this.add.image(0,-50,'ananasP');
+        this.add.image(0,-50,'bedraP');
         this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         prevBtnOro.visible = false;
         //kupiOro.visible = true;
@@ -113,14 +113,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV0 == 1){
+        if(orM0 == 1){
             kupiOro.visible = false;
         } else {
             kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 1){
-        this.add.image(0,-50,'bananaP');
+        this.add.image(0,-50,'cuftP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
          prevBtnOro.visible = true;
         kupiOro.visible = true;
@@ -134,12 +134,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV1 == 1){
+        if(orM1 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 2){
-        this.add.image(0,-50,'cesnjeP');
+        this.add.image(0,-50,'hamburgerP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         kupiOro.visible = true;
          kupiOro.bringToTop();
@@ -152,12 +154,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV2 == 1){
+        if(orM2 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 3){
-        this.add.image(0,-50,'grenivkaP');
+        this.add.image(0,-50,'klobasaP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         kupiOro.visible = true;
          kupiOro.bringToTop();
@@ -170,12 +174,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV3 == 1){
+        if(orM3 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 4){
-        this.add.image(0,-50,'grozdjeP');
+        this.add.image(0,-50,'kuraP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         kupiOro.visible = true;
          kupiOro.bringToTop();
@@ -188,12 +194,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV4 == 1){
+        if(orM4 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 5){
-        this.add.image(0,-50,'hruskaP');
+        this.add.image(0,-50,'meso1P');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         kupiOro.visible = true;
          kupiOro.bringToTop();
@@ -206,12 +214,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV5 == 1){
+        if(orM5 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 6){
-        this.add.image(0,-50,'jabolkoP');
+        this.add.image(0,-50,'mesoP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         kupiOro.visible = true;
          kupiOro.bringToTop();
@@ -224,12 +234,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV6 == 1){
+        if(orM6 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 7){
-        this.add.image(0,-50,'jagodaP');
+        this.add.image(0,-50,'picaP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         kupiOro.visible = true;
          kupiOro.bringToTop();
@@ -242,12 +254,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV7 == 1){
+        if(orM7 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 8){
-        this.add.image(0,-50,'limonaP');
+        this.add.image(0,-50,'raznjicP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         nxtBtnOro.visible = true;
         kupiOro.visible = true;
@@ -261,12 +275,14 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV8 == 1){
+        if(orM8 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
     if(indeksOroShop == 9){
-        this.add.image(0,-50,'lubenicaP');
+        this.add.image(0,-50,'salamaP');
          this.add.text(235, 398, '200', { fontSize: '32px', fill: '#000' });
         nxtBtnOro.visible = false;
         kupiOro.visible = true;
@@ -280,8 +296,10 @@ update: function(game){
                premaloDenarja = false;
     }  , this, 2,1,0);
         }
-        if(orV9 == 1){
+        if(orM9 == 1){
             kupiOro.visible = false;
+        }else {
+            kupiOro.visible = true;
         }
     }
 

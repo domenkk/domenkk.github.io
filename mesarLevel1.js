@@ -26,6 +26,18 @@ var life9M;
 var life10M;
 
 Game.MesarLevel1.prototype = {
+    
+preload:function(game){
+   
+    
+    if(okolje == 0){
+        this.load.image('tiles', 'dodatno_mesar/level1/tilesetW.png');
+        this.load.image('tilesetM', 'images_mesar/tilesMwinter.png');
+    } else if(okolje == 1){
+        this.load.image('tiles', 'dodatno_mesar/level1/tilesetW.png');
+        this.load.image('tilesetM', 'images_mesar/tilesMautumn.png');
+    }
+},
     create:function(game) {
       //nebo
       this.stage.backgroundColor = '#3e4dbc';
@@ -149,7 +161,7 @@ Game.MesarLevel1.prototype = {
    }
 
    if(zivljenjaM == 0){
-   tockeV+=stKlobas;
+   tockeV=tockeV + stKlobas*20;
    var meniGO = this.add.image(this.camera.x + 220, this.camera.y + 150, 'mnGO');
    mesar.kill();
     var btnB = this.add.button(this.camera.x + 320, this.camera.y + 350, 'bckGO', function(){
@@ -160,7 +172,7 @@ Game.MesarLevel1.prototype = {
 }
 
     if(konecIgre(mesar, konec)){
-        tockeV+=stKlobas;
+       tockeV=tockeV + stKlobas*20;
       this.state.start('MesarLevel2');
     }
   },

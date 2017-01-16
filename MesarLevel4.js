@@ -35,7 +35,30 @@ var shootTime = 0;
 var kosti;
 
 Game.MesarLevel4.prototype = {
-
+preload:function(game){
+    if(orozjeMesar == 0){
+        this.load.image('kost', 'images_mesar/metki/bedra.png');
+    } else if(orozjeVeganka == 1){
+         this.load.image('kost', 'images_mesar/metki/cuft.png');
+    } else if(orozjeMesar == 2){
+         this.load.image('kost', 'images_mesar/metki/hamburger.png');
+    } else if(orozjeMesar == 3){
+         this.load.image('kost', 'images_mesar/metki/klobasa.png');
+    } else if(orozjeMesar == 4){
+        this.load.image('kost', 'images_mesar/metki/kura.png');
+    } else if(orozjeMesar == 5){
+        this.load.image('kost', 'images_mesar/metki/meso.png');
+    } else if(orozjeMesar == 6){
+        this.load.image('kost', 'images_mesar/metki/meso1.png');
+    } else if(orozjeMesar == 7){
+       this.load.image('kost', 'images_mesar/metki/pica.png');
+    } else if(orozjeMesar == 8){
+        this.load.image('kost', 'images_mesar/metki/raznjic.png');
+    } else if(orozjeMesar == 9){
+        this.load.image('kost', 'images_mesar/metki/salama.png');
+    }
+},
+    
 create: function(game){
   this.stage.backgroundColor = '#3e4dbc';
   this.backgroundSprite = this.game.add.tileSprite(0, 0, 800, 600, 'background');
@@ -132,8 +155,8 @@ life1M.fixedToCamera = true;
 
   kosti.setAll('anchor.x', 0.5);
   kosti.setAll('anchor.y', 0.5);
-  kosti.setAll('scale.x', 0.5);
-  kosti.setAll('scale.y', 0.5);
+  kosti.setAll('scale.x', 1);
+  kosti.setAll('scale.y', 1);
   kosti.setAll('outOfBoundsKill', true);
   kosti.setAll('checkWorldBounds', true);
 
@@ -176,7 +199,7 @@ update: function(game){
   }
 
   if(zivljenjaM == 0){
-    
+    tockeV=tockeV + stKlobas*20;
     var meniGO = game.add.image(game.camera.x + 220, game.camera.y + 150, 'mnGO');   
     mesar.kill();
      var btnB = game.add.button(game.camera.x + 320, game.camera.y + 350, 'bckGO', function(){

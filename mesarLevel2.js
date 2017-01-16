@@ -128,7 +128,7 @@ update: function(game){
   }
 
   if(zivljenjaM == 0){
-    
+    tockeV=tockeV + stKlobas*20;
     var meniGO = game.add.image(game.camera.x + 220, game.camera.y + 150, 'mnGO');   
     mesar.kill();
      var btnB = game.add.button(game.camera.x + 320, game.camera.y + 350, 'bckGO', function(){

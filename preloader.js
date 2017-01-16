@@ -10,6 +10,50 @@ var ziv7kup = false;
 var ziv8kup = false;
 var ziv9kup = false;
 var ziv10kup = false;
+var orozjeVeganka = -1;
+var orozjeMesar = -1;
+//var orozjaVeganka = ["0","0","0","0","0","0","0","0","0","0"];
+var orV1 = 0;
+var orV2 = 0;
+var orV3 = 0;
+var orV4 = 0;
+var orV5 = 0;
+var orV6 = 0;
+var orV7 = 0;
+var orV8 = 0;
+var orV9 = 0;
+var orV0 = 0;
+
+var orM0 = 0;
+var orM1 = 0;
+var orM2 = 0;
+var orM3 = 0;
+var orM4 = 0;
+var orM5 = 0;
+var orM6 = 0;
+var orM7 = 0;
+var orM8 = 0;
+var orM9 = 0;
+
+
+var okolje = -1;
+var oko0 = 0;
+var oko1 = 0;
+
+var obleka = -1;
+var oblV0 = 0;
+var oblV1 = 0;
+var oblV2 = 0;
+var oblV3 = 0;
+var oblV4 = 0;
+var oblV5 = 0;
+var oblV6 = 0;
+var oblV7 = 0;
+var oblV8 = 0;
+var oblV9 = 0;
+var oblV10 = 0;
+var oblV11 = 0;
+
 
 Game.Preloader.prototype = {
   preload:function(){
@@ -57,6 +101,7 @@ Game.Preloader.prototype = {
 
       this.load.image('srcek', 'images_vegan/srcek.png');
       this.load.image('metekV', 'images_vegan/metek.png');
+      this.load.image('metekM', 'images_vegan/metek.png');
 
       this.load.image('bckGO', 'images_vegan/go_bck.png');
       this.load.image('mnGO', 'images_vegan/go_mn.png');
@@ -176,6 +221,55 @@ Game.Preloader.prototype = {
       this.load.image('jagodaP', 'images_shop/jagodaP.png');
       this.load.image('limonaP', 'images_shop/limonaP.png');
       this.load.image('lubenicaP', 'images_shop/lubenicaP.png');
+
+      //shopTileset
+      this.load.image('okoSid', 'images_shop/cetrtastr.png');
+      this.load.image('zimaP', 'images_shop/zimskiTilesetProdukt.png');
+      this.load.image('jesenP', 'images_shop/jesenskiTilesetProdukt.png');
+
+      //shopOrozjeMesar
+      this.load.image('bedraP', 'images_shop/bedraP.png');
+      this.load.image('cuftP', 'images_shop/cuftP.png');
+      this.load.image('hamburgerP', 'images_shop/hamburgerP.png');
+      this.load.image('klobasaP', 'images_shop/klobasaP.png');
+      this.load.image('kuraP', 'images_shop/kuraP.png');
+      this.load.image('meso1P', 'images_shop/meso1P.png');
+      this.load.image('mesoP', 'images_shop/mesoP.png');
+      this.load.image('picaP', 'images_shop/picaP.png');
+      this.load.image('raznjicP', 'images_shop/raznjicP.png');
+      this.load.image('salamaP', 'images_shop/salamaP.png');
+
+      //shopOblekeVegan
+      this.load.image('oblSid', 'images_shop/tretjastr.png');
+      this.load.image('crnoBlont', 'images_shop/CBZS.png');
+      this.load.image('crnoCrno', 'images_shop/CCZS.png');
+      this.load.image('crnoRjavo', 'images_shop/CRZS.png');
+      this.load.image('modroBlont', 'images_shop/MBZS.png');
+      this.load.image('modroCrno', 'images_shop/MCZS.png');
+      this.load.image('modroRjavo', 'images_shop/MRZS.png');
+      this.load.image('rjavoBlont', 'images_shop/RBZS.png');
+      this.load.image('rjavoCrno', 'images_shop/RCZS.png');
+      this.load.image('rjavoRjavo', 'images_shop/RRZS.png');
+      this.load.image('zelenoBlont', 'images_shop/ZBZS.png');
+      this.load.image('zelenoCrno', 'images_shop/ZCZS.png');
+      this.load.image('zelenoRjavo', 'images_shop/ZRZS.png');
+
+      this.load.spritesheet('crnoBlontI', 'images_shop/cb.png');
+      this.load.spritesheet('crnoCrnoI', 'images_shop/cc.png');
+      this.load.spritesheet('crnoRjavoI', 'images_shop/cr.png');
+      this.load.spritesheet('modroBlontI', 'images_shop/mb.png');
+      this.load.spritesheet('modroCrnoI', 'images_shop/mc.png');
+      this.load.spritesheet('modroRjavoI', 'images_shop/mr.png');
+      this.load.spritesheet('rjavoBlontI', 'images_shop/rb.png');
+      this.load.spritesheet('rjavoCrnoI', 'images_shop/rc.png');
+      this.load.spritesheet('rjavoRjavoI', 'images_shop/rr.png');
+      this.load.spritesheet('zelenoBlontI', 'images_shop/zb.png');
+      this.load.spritesheet('zelenoCrnoI', 'images_shop/zc.png');
+      this.load.spritesheet('zelenoRjavoI', 'images_shop/zr.png');
+
+
+
+
 
   },
 

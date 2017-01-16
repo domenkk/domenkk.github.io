@@ -22,7 +22,11 @@ this.add.image(0,0,'zivSid');
     btn1.anchor.setTo(0.5,0.5);
 
     var btn2 = game.add.button(240, 120,'oroS', function(){
+        if(izbranaV){
       this.state.start('OrozjeS');
+            } else if(izbranM){
+                this.state.start('OrozjeM');
+            }
   }  , this, 2,1,0);
     btn2.anchor.setTo(0.5,0.5);
 

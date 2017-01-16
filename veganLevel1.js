@@ -29,9 +29,67 @@ var life10;
 var pointsV = 0;
 
 Game.VeganLevel1.prototype = {
+preload:function(game){
+    if(orozjeVeganka == 0){
+        this.load.image('metekV', 'images_vegan/metkiV/ananas.png');
+    } else if(orozjeVeganka == 1){
+        this.load.image('metekV', 'images_vegan/metkiV/banana.png');
+    } else if(orozjeVeganka == 2){
+        this.load.image('metekV', 'images_vegan/metkiV/cesnje.png');
+    } else if(orozjeVeganka == 3){
+        this.load.image('metekV', 'images_vegan/metkiV/grapefruit.png');
+    } else if(orozjeVeganka == 4){
+        this.load.image('metekV', 'images_vegan/metkiV/grozdje.png');
+    } else if(orozjeVeganka == 5){
+        this.load.image('metekV', 'images_vegan/metkiV/hruska.png');
+    } else if(orozjeVeganka == 6){
+        this.load.image('metekV', 'images_vegan/metkiV/jabolko.png');
+    } else if(orozjeVeganka == 7){
+        this.load.image('metekV', 'images_vegan/metkiV/jagoda.png');
+    } else if(orozjeVeganka == 8){
+        this.load.image('metekV', 'images_vegan/metkiV/limona.png');
+    } else if(orozjeVeganka == 9){
+        this.load.image('metekV', 'images_vegan/metkiV/lubenica.png');
+    }
+
+    if(okolje == 0){
+        this.load.image('tilesetV', 'images_vegan/WinterTilesV.png');
+    } else if(okolje == 1){
+        this.load.image('tilesetV', 'images_vegan/AutumnTilesV.png');
+    }
+
+    if(obleka == 0){
+      this.load.spritesheet('veganka', 'images_shop/zb.png', 24, 26);
+    } else if(obleka == 1){
+      this.load.spritesheet('veganka', 'images_shop/zr.png', 24, 26);
+    } else if(obleka == 2){
+      this.load.spritesheet('veganka', 'images_shop/zc.png', 24, 26);
+    } else if(obleka == 3){
+      this.load.spritesheet('veganka', 'images_shop/rb.png', 24, 26);
+    } else if(obleka == 4){
+      this.load.spritesheet('veganka', 'images_shop/rr.png', 24, 26);
+    } else if(obleka == 5){
+      this.load.spritesheet('veganka', 'images_shop/rc.png', 24, 26);
+    } else if(obleka == 6){
+      this.load.spritesheet('veganka', 'images_shop/mb.png', 24, 26);
+    } else if(obleka == 7){
+      this.load.spritesheet('veganka', 'images_shop/mr.png', 24, 26);
+    } else if(obleka == 8){
+      this.load.spritesheet('veganka', 'images_shop/mc.png', 24, 26);
+    } else if(obleka == 9){
+      this.load.spritesheet('veganka', 'images_shop/cb.png', 24, 26);
+    } else if(obleka == 10){
+      this.load.spritesheet('veganka', 'images_shop/cr.png', 24, 26);
+    } else if(obleka == 11){
+      this.load.spritesheet('veganka', 'images_shop/cc.png', 24, 26);
+    }
+
+},
+
 
 create: function(game){
-
+        console.log(orV0);
+    console.log(orozjeVeganka);
       console.log(zivljenjaVeganka);
 
   glasbaV1 = this.add.audio("gameSong");
