@@ -109,14 +109,24 @@ Game.Preloader.prototype = {
       this.load.image('mesarEn', 'images_vegan/mesar_front_big.png');
 
       this.load.image('bckCTV', 'images_catchTheV/bck_CTV.jpg');
-      this.load.tilemap('mapCTV1', 'images_catchTheV/mapCTV1.csv');
-      this.load.image('tilesetCTV', 'images_catchTheV/tileCtchVg.png');
+
+
+
+      // CTV
       this.load.spritesheet('vegankaCTV', 'images_catchTheV/veganka_labirint.png', 20, 20);
       this.load.spritesheet('butcherCTV', 'images_catchTheV/butcher_labirint.png', 20, 20);
       this.load.image('vegWinM', 'images_catchTheV/veg_win.png');
       this.load.image('butchWinM', 'images_catchTheV/butch_win.png');
       this.load.image('bckBtnCTV', 'images_catchTheV/ctv_meni.png');
       this.load.image('nxtBtnCTV', 'images_catchTheV/ctv_next.png');
+
+      this.load.tilemap('mapCTV1', 'images_catchTheV/mapCTV1.csv');
+      this.load.image('tilesetCTV', 'images_catchTheV/tileCtchVg.png');
+
+      this.load.tilemap('mapCTV2', 'images_catchTheV/mapCTV2.csv');
+      this.load.tilemap('mapCTV3', 'images_catchTheV/mapCTV3.csv');
+
+
 
 	  //boss
 	        this.load.tilemap('bossVmap', 'images_vegan/bossVmap.csv');

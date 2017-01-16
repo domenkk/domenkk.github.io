@@ -1,6 +1,6 @@
-Game.CTVlevel1 = function(game){}
+Game.CTVlevel3 = function(game){}
 
-var mapCTV1;
+var mapCTV3;
 var layerCTV;
 
 var vegankaCTV;
@@ -14,12 +14,12 @@ var buctherSpeedCTV = 150;
 var vegankaAngle = 0;
 var butcherAngle = 0;
 
-var timer1, timerEvent1, text1;
+var timer3, timerEvent3, text3;
 var winV = false;
 var winB = false;
 var preostanek;
 
-Game.CTVlevel1.prototype = {
+Game.CTVlevel3.prototype = {
 
     create: function(game){
         winV = false;
@@ -27,13 +27,13 @@ Game.CTVlevel1.prototype = {
         this.backgroundSprite = this.game.add.tileSprite(0, 0, 800, 600, 'bckCTV');
 
           this.physics.arcade.gravity.y = 0;
-        mapCTV1 = this.add.tilemap('mapCTV1', 25, 25);
-        mapCTV1.addTilesetImage('tilesetCTV');
+        mapCTV3 = this.add.tilemap('mapCTV3', 25, 25);
+        mapCTV3.addTilesetImage('tilesetMV');
 
-        layerCTV = mapCTV1.createLayer(0);
+        layerCTV = mapCTV3.createLayer(0);
         layerCTV.resizeWorld();
 
-        mapCTV1.setCollisionBetween(0,2);
+        mapCTV3.setCollisionBetween(0,2);
         vegankaCTV = this.add.sprite(40, 40, 'vegankaCTV');
         vegankaCTV.anchor.setTo(0.5, 0.5);
         vegankaCTV.scale.setTo(1.2,1.2);
@@ -66,17 +66,16 @@ Game.CTVlevel1.prototype = {
         };
 
         timer = game.time.create();
-        //timerEvent = timer.add(Phaser.Timer.SECOND * 5, this.endTimer, this);
         timerEvent = timer.add(Phaser.Timer.MINUTE * 1 + Phaser.Timer.SECOND * 30, this.endTimer, this);
         timer.start();
 
-        text1 = game.add.text(game.world.centerX,52, 'tt');
-        text1.anchor.setTo(0.5,0.5);
+        text3 = game.add.text(game.world.centerX,52, 'tt');
+        text3.anchor.setTo(0.5,0.5);
 
     },
     update: function(game){
         if(!winV && !winB){
-        text1.text = this.formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)).toString();
+        text3.text = this.formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)).toString();
         }
         this.physics.arcade.collide(vegankaCTV, layerCTV);
         vegankaCTV.body.velocity.x = 0;
@@ -90,7 +89,7 @@ Game.CTVlevel1.prototype = {
             this.state.start('MainMenu');
          }  , this, 2,1,0);
         var btnN = game.add.button(game.world.centerX+70, game.world.centerY+95, 'nxtBtnCTV', function(){
-            this.state.start('CTVlevel3');
+            this.state.start('MainMenu');
             //naslednji lvl
          }  , this, 2,1,0);
             btnB.anchor.setTo(0.5,0.5);
@@ -176,7 +175,7 @@ Game.CTVlevel1.prototype = {
                 this.state.start('MainMenu');
             }  , this, 2,1,0);
             var btnN = game.add.button(game.world.centerX+70, game.world.centerY+95, 'nxtBtnCTV', function(){
-           this.state.start('CTVlevel3');
+           this.state.start('MainMenu');
             //naslednji lvl
             }  , this, 2,1,0);
             btnB.anchor.setTo(0.5,0.5);
@@ -193,12 +192,10 @@ Game.CTVlevel1.prototype = {
         timer.stop();
     },
     formatTime: function(s) {
-        // Convert seconds (s) to a nicely formatted and padded time string
         var minutes = "0" + Math.floor(s / 60);
         var seconds = "0" + (s - minutes * 60);
         return minutes.substr(-2) + ":" + seconds.substr(-2);
     }
-
 
 }
 
